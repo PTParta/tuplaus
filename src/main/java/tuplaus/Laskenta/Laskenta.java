@@ -11,4 +11,18 @@ public class Laskenta {
         return new Random().nextInt(suurinKortti - pieninKortti + 1) + pieninKortti;
     }
 
+    //TODO: Yksikkötesti
+    public Boolean isVoitto(String valinta, Integer arvotunKortinSuuruus){
+
+        if(arvotunKortinSuuruus == 7){
+            return false;
+        }
+        if(valinta.equals("pieni") && arvotunKortinSuuruus < 7) {
+            return true;
+        }
+        if(valinta.equals("suuri") && arvotunKortinSuuruus > 7){
+            return true;
+        }
+        return false;
+    }
 }

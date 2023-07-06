@@ -11,27 +11,23 @@ import tuplaus.Dtos.Requests.LuoPelaajaPyyntoDto;
 //https://medium.com/@wahyudi.hh/h2-database-as-embedded-postgres-for-spring-boot-integration-test-295683c7b974
 @Service
 public class PelaajaService {
-    
-@Autowired
-PelaajaRepository pelaajaRepository;
 
-    //TODO: mapper
-    public String luoPelaaja(LuoPelaajaPyyntoDto pelaajaDto){
+    @Autowired
+    PelaajaRepository pelaajaRepository;
+
+    // TODO: mapper
+    public String luoPelaaja(LuoPelaajaPyyntoDto pelaajaDto) {
 
         Pelaaja pelaaja = new Pelaaja();
         pelaaja.setTunniste(pelaajaDto.getTunniste());
         pelaaja.setNimi(pelaajaDto.getnimi());
         pelaaja.setSaldo(pelaajaDto.getSaldo());
 
-        try{
-            pelaajaRepository.save(pelaaja);
-            return "Pelaaja luotu";
-        }catch(Exception e){
-           return "Pelaajan luonti epäonnistui";
-        }
+        pelaajaRepository.save(pelaaja);
+        return "Pelaaja luotu";
     }
 
-    public List<Pelaaja> haePelaajat(){
+    public List<Pelaaja> haePelaajat() {
         return pelaajaRepository.findAll();
     }
 

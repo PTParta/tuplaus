@@ -25,7 +25,6 @@ public class Pelaaja extends AbstractPersistable<Long> {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    
     private String tunniste;
 
     private String nimi;

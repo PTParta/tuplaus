@@ -8,6 +8,8 @@ public class PelitapahtumaPyyntoDto {
 
     private String valinta;
 
+    private Boolean onEnsimmainenKierros;
+
     public void setTunniste(String tunniste){
         this.tunniste = tunniste;
     }
@@ -20,6 +22,10 @@ public class PelitapahtumaPyyntoDto {
         this.valinta = valinta;
     }
 
+    public void setOnEnsimmainenKierros(Boolean onEnsimmainenKierros){
+        this.onEnsimmainenKierros = onEnsimmainenKierros;
+    }
+
     public String getTunniste(){
         return this.tunniste;
     }
@@ -30,5 +36,9 @@ public class PelitapahtumaPyyntoDto {
 
     public String getValinta(){
         return this.valinta;
+    }
+
+    public Boolean getOnEnsimmainenKierros(){
+        return this.onEnsimmainenKierros;
     }
 }

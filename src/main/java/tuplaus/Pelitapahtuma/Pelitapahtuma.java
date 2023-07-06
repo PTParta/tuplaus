@@ -4,7 +4,6 @@ import java.util.Date;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
