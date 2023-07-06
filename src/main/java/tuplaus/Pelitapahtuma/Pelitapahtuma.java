@@ -1,4 +1,6 @@
-package tuplaus.Pelaaja;
+package tuplaus.Pelitapahtuma;
+
+import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,22 +10,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import org.springframework.data.jpa.domain.AbstractPersistable;
-
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Pelaaja extends AbstractPersistable<Long> {
-
+public class Pelitapahtuma extends AbstractPersistable<Long>{
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String tunniste;
 
-    private String nimi;
+    private Integer panos;
 
-    private Integer saldo;
+    //TODO enum
+    private String valinta;
 
+    private Integer arvottuKortti;
+
+    private Integer voitonSuuruus;
 }

@@ -1,4 +1,4 @@
-package tuplaus.Pelaaja;
+package tuplaus.Dtos;
 
 public class PelaajaDto{
     
@@ -6,7 +6,7 @@ public class PelaajaDto{
 
     private String nimi;
 
-    private Double saldo;
+    private Integer saldo;
 
     public void setTunniste(String tunniste){
         this.tunniste = tunniste;
@@ -16,7 +16,7 @@ public class PelaajaDto{
         this.nimi = nimi;
     }
 
-    public void setSaldo(Double saldo){
+    public void setSaldo(Integer saldo){
         this.saldo = saldo;
     }
 
@@ -28,7 +28,7 @@ public class PelaajaDto{
         return this.nimi;
     }
 
-    public Double getSaldo(){
+    public Integer getSaldo(){
         return this.saldo;
     }
 }
