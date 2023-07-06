@@ -10,32 +10,31 @@ import org.springframework.web.server.ResponseStatusException;
 import tuplaus.Dtos.Requests.KotiutaVoitotPyyntoDto;
 import tuplaus.Dtos.Requests.PelitapahtumaPyyntoDto;
 import tuplaus.Dtos.Responses.PelitapahtumaVastausDto;
-import tuplaus.Pelitapahtuma.PelitapahtumaService.PelaajaaEiLoydyException;
-import tuplaus.Pelitapahtuma.PelitapahtumaService.SaldoEiRiitaException;
+import tuplaus.Exceptions.PelaajaaEiLoydyException;
+import tuplaus.Exceptions.SaldoEiRiitaException;
 
 @RestController
 public class PelitapahtumaController {
-    
+
     @Autowired
     PelitapahtumaService pelitapahtumaService;
 
     @PostMapping("tuplaus")
     public PelitapahtumaVastausDto tuplaus(@RequestBody PelitapahtumaPyyntoDto pelitapahtumaDto) {
 
-        try{
+        try {
             return pelitapahtumaService.luoPelitapahtuma(pelitapahtumaDto);
-        }catch(SaldoEiRiitaException e){
+        } catch (SaldoEiRiitaException e) {
             throw new ResponseStatusException(
-          HttpStatus.BAD_REQUEST, "Saldo ei riitä.");
-        }catch(PelaajaaEiLoydyException e){
+                    HttpStatus.BAD_REQUEST, "Saldo ei riitä.");
+        } catch (PelaajaaEiLoydyException e) {
             throw new ResponseStatusException(
-          HttpStatus.BAD_REQUEST, "Tunnisteella ei löydy pelaajaa.");
+                    HttpStatus.BAD_REQUEST, "Tunnisteella ei löydy pelaajaa.");
         }
-      
     }
 
     @PostMapping("kotiutavoitot")
-    public String kotioutaVoitot(@RequestBody KotiutaVoitotPyyntoDto kotiutaVoitotPyyntoDto){
+    public String kotioutaVoitot(@RequestBody KotiutaVoitotPyyntoDto kotiutaVoitotPyyntoDto) {
 
         return pelitapahtumaService.kotiutaVoitot(kotiutaVoitotPyyntoDto);
     }

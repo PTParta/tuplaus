@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import tuplaus.Dtos.Requests.KotiutaVoitotPyyntoDto;
 import tuplaus.Dtos.Requests.PelitapahtumaPyyntoDto;
 import tuplaus.Dtos.Responses.PelitapahtumaVastausDto;
+import tuplaus.Exceptions.PelaajaaEiLoydyException;
+import tuplaus.Exceptions.SaldoEiRiitaException;
 import tuplaus.Laskenta.Laskenta;
 import tuplaus.Pelaaja.Pelaaja;
 import tuplaus.Pelaaja.PelaajaRepository;
@@ -27,6 +29,9 @@ public class PelitapahtumaService {
     public PelitapahtumaVastausDto luoPelitapahtuma(PelitapahtumaPyyntoDto pelitapahtumaDto)
             throws SaldoEiRiitaException, PelaajaaEiLoydyException {
 
+        onkoPelaajaOlemassa(pelitapahtumaDto.getTunniste());
+        riittaakoSaldo(pelitapahtumaDto.getTunniste(), pelitapahtumaDto.getPanos());
+        
         Laskenta laskenta = new Laskenta();
         Integer arvotunKortinSuuruus = laskenta.arvoKortinSuuruus();
         Boolean voitto = laskenta.isVoitto(pelitapahtumaDto.getValinta(), arvotunKortinSuuruus);
@@ -41,22 +46,14 @@ public class PelitapahtumaService {
         pelitapahtuma.setArvottuKortti(arvotunKortinSuuruus);
         pelitapahtuma.setMahdollisenVoitonSuuruus(mahdollisenVoitonSuuruus);
 
+        pelitapahtumaRepository.save(pelitapahtuma);
+
         PelitapahtumaVastausDto pelitapahtumaVastausDto = new PelitapahtumaVastausDto();
         pelitapahtumaVastausDto.setArvottuKortti(arvotunKortinSuuruus);
         pelitapahtumaVastausDto.setVoitto(voitto);
         pelitapahtumaVastausDto.setMahdollisenVoitonSuuruus(mahdollisenVoitonSuuruus);
         Integer saldo = handleSaldo(pelitapahtumaDto);
         pelitapahtumaVastausDto.setPelitilinSaldo(saldo);
-
-        /* if (pelitapahtumaDto.getOnEnsimmainenKierros()) {
-            Integer uusiSaldo = vahennaPelaajanSaldo(pelitapahtumaDto.getTunniste(), pelitapahtumaDto.getPanos());
-            pelitapahtumaVastausDto.setPelitilinSaldo(uusiSaldo);
-        } else {
-            Integer saldo = pelaajaRepository.findByTunniste(pelitapahtuma.getTunniste()).getSaldo();
-            pelitapahtumaVastausDto.setPelitilinSaldo(saldo);
-        } */
-
-        pelitapahtumaRepository.save(pelitapahtuma);
 
         return pelitapahtumaVastausDto;
     }
@@ -75,8 +72,24 @@ public class PelitapahtumaService {
         return "Voitot kotiutettu";
     }
 
-    private Integer handleSaldo(PelitapahtumaPyyntoDto pelitapahtumaDto)
-            throws SaldoEiRiitaException, PelaajaaEiLoydyException {
+    private void onkoPelaajaOlemassa(String tunniste) throws PelaajaaEiLoydyException{
+        
+        Pelaaja pelaaja = pelaajaRepository.findByTunniste(tunniste);
+        if (Objects.isNull(pelaaja)) {
+            throw new PelaajaaEiLoydyException("Pelaajaa ei löydy tunnisteella " + tunniste);
+        }
+    }
+
+    private void riittaakoSaldo(String tunniste, Integer panos) throws SaldoEiRiitaException{
+        
+        Pelaaja pelaaja = pelaajaRepository.findByTunniste(tunniste);
+        Integer uusiSaldo = pelaaja.getSaldo() - panos;
+        if (uusiSaldo < 0) {
+            throw new SaldoEiRiitaException("Saldo ei riitä panoksella " + panos.toString());
+        }
+    }
+
+    private Integer handleSaldo(PelitapahtumaPyyntoDto pelitapahtumaDto) {
 
         if (pelitapahtumaDto.getOnEnsimmainenKierros()) {
             Integer uusiSaldo = vahennaPelaajanSaldo(pelitapahtumaDto.getTunniste(), pelitapahtumaDto.getPanos());
@@ -87,34 +100,11 @@ public class PelitapahtumaService {
         }
     }
 
-    private Integer vahennaPelaajanSaldo(String tunniste, Integer panos)
-            throws SaldoEiRiitaException, PelaajaaEiLoydyException {
+    private Integer vahennaPelaajanSaldo(String tunniste, Integer panos) {
 
         Pelaaja pelaaja = pelaajaRepository.findByTunniste(tunniste);
-
-        if (Objects.isNull(pelaaja)) {
-            throw new PelaajaaEiLoydyException("Pelaajaa ei löydy tunnisteella " + tunniste);
-        }
-        
         Integer uusiSaldo = pelaaja.getSaldo() - panos;
-
-        if (uusiSaldo < 0) {
-            throw new SaldoEiRiitaException("Saldo ei riitä panoksella " + panos.toString());
-        }
-
         pelaaja.setSaldo(uusiSaldo);
         return pelaajaRepository.save(pelaaja).getSaldo();
-    }
-
-    public class SaldoEiRiitaException extends Exception {
-        public SaldoEiRiitaException(String virheviesti) {
-            super(virheviesti);
-        }
-    }
-
-    public class PelaajaaEiLoydyException extends Exception {
-        public PelaajaaEiLoydyException(String virheviesti) {
-            super(virheviesti);
-        }
     }
 }

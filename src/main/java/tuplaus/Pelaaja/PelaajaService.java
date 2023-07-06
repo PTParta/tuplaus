@@ -30,5 +30,4 @@ public class PelaajaService {
     public List<Pelaaja> haePelaajat() {
         return pelaajaRepository.findAll();
     }
-
 }

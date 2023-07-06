@@ -17,7 +17,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"tunniste"})
+        @UniqueConstraint(columnNames = { "tunniste" })
 })
 public class Pelaaja extends AbstractPersistable<Long> {
 
@@ -30,5 +30,4 @@ public class Pelaaja extends AbstractPersistable<Long> {
     private String nimi;
 
     private Integer saldo;
-
 }
