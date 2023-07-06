@@ -1,6 +1,6 @@
-package tuplaus.Dtos;
+package tuplaus.Dtos.Requests;
 
-public class PelaajaDto{
+public class LuoPelaajaPyyntoDto{
     
     private String tunniste;
 

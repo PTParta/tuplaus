@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import tuplaus.Dtos.PelaajaDto;
+import tuplaus.Dtos.Requests.LuoPelaajaPyyntoDto;
 
 @RestController
 public class PelaajaController {
@@ -18,9 +18,9 @@ public class PelaajaController {
     PelaajaService pelaajaService;
     
     @PostMapping("pelaaja")
-    public void luoPelaaja(@RequestBody PelaajaDto pelaajaDto) {
+    public String luoPelaaja(@RequestBody LuoPelaajaPyyntoDto pelaajaDto) {
 
-        pelaajaService.luoPelaaja(pelaajaDto);
+        return pelaajaService.luoPelaaja(pelaajaDto);
     }
 
     @GetMapping("pelaaja/{tunniste}")

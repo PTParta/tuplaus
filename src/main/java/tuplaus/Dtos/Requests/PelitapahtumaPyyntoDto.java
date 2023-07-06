@@ -1,4 +1,4 @@
-package tuplaus.Dtos;
+package tuplaus.Dtos.Requests;
 
 public class PelitapahtumaPyyntoDto {
     

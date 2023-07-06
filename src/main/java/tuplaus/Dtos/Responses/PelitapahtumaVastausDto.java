@@ -1,4 +1,4 @@
-package tuplaus.Dtos;
+package tuplaus.Dtos.Responses;
 
 public class PelitapahtumaVastausDto {
     
