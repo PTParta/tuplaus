@@ -1,6 +1,6 @@
 package tuplaus.Dtos;
 
-public class PelitapahtumaDto {
+public class PelitapahtumaPyyntoDto {
     
     private String tunniste;
 

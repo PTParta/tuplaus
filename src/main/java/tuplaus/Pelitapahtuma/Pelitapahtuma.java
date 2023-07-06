@@ -32,5 +32,5 @@ public class Pelitapahtuma extends AbstractPersistable<Long>{
 
     private Integer arvottuKortti;
 
-    private Integer voitonSuuruus;
+    private Integer mahdollisenVoitonSuuruus;
 }
