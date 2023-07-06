@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import tuplaus.Dtos.PelitapahtumaPyyntoDto;
+import tuplaus.Dtos.PelitapahtumaVastausDto;
 
 @RestController
 public class PelitapahtumaController {
@@ -14,9 +15,8 @@ public class PelitapahtumaController {
     PelitapahtumaService pelitapahtumaService;
 
     @PostMapping("tuplaus")
-    public Integer tuplaus(@RequestBody PelitapahtumaPyyntoDto pelitapahtumaDto) {
+    public PelitapahtumaVastausDto tuplaus(@RequestBody PelitapahtumaPyyntoDto pelitapahtumaDto) {
 
-        pelitapahtumaService.luoPelitapahtuma(pelitapahtumaDto);
-        return pelitapahtumaDto.getPanos() + 1;
+       return pelitapahtumaService.luoPelitapahtuma(pelitapahtumaDto);
     }
 }
