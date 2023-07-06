@@ -1,8 +1,9 @@
 package tuplaus.Pelitapahtuma;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class PelitapahtumaRepository {
+public interface PelitapahtumaRepository  extends JpaRepository<Pelitapahtuma, Long>{
     
 }

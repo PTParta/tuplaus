@@ -1,5 +1,7 @@
 package tuplaus.Pelitapahtuma;
 
+import java.util.Date;
+
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import jakarta.persistence.Entity;
@@ -20,11 +22,12 @@ public class Pelitapahtuma extends AbstractPersistable<Long>{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private Date aikaleima;
+
     private String tunniste;
 
     private Integer panos;
 
-    //TODO enum
     private String valinta;
 
     private Integer arvottuKortti;
