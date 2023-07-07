@@ -1,7 +1,5 @@
 # Tuplauspeli API dokumentaatio
 
-Katso projektin juuressa oleva tiedosto tuplaus.postman_collection.json. Voit importata tämän Postmaniin testausta varten.
-
 Alla on listattu tuplauspeli API:n mahdolliset pyynnöt.
 
 ## Pelaajan luonti POST localhost:8080/pelaaja
