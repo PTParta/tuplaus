@@ -24,4 +24,5 @@ API-dokumentaatiossa.
    - User Name: sa
    - Password:
 
-7. Projektin juuressa on kuvat tietokantatauluista pelaajataulu.png ja pelitapahtumataulu.png.
+7. Projektin juuressa on kuvat tietokantatauluista pelaajataulu.png ja pelitapahtumataulu.png
+   sekä demo.mp4 ja testit.mp4 jos tulee jotain ongelmia sovelluksen käynnistämisessä.
