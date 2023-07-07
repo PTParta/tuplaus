@@ -26,10 +26,10 @@ public class PelitapahtumaController {
             return pelitapahtumaService.luoPelitapahtuma(pelitapahtumaDto);
         } catch (SaldoEiRiitaException e) {
             throw new ResponseStatusException(
-                    HttpStatus.BAD_REQUEST, "Saldo ei riitä.");
+                    HttpStatus.BAD_REQUEST, "Saldo ei riitä");
         } catch (PelaajaaEiLoydyException e) {
             throw new ResponseStatusException(
-                    HttpStatus.BAD_REQUEST, "Tunnisteella ei löydy pelaajaa.");
+                    HttpStatus.BAD_REQUEST, "Tunnisteella ei löydy pelaajaa");
         }
     }
 
