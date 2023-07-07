@@ -23,7 +23,6 @@ class TuplausApplicationTests {
 	private MockMvc mockMvc;
 
 	/**
-	 * 
 	 * Tehty vain integraatiotestejä.
 	 * 
 	 * TODO:

@@ -1,0 +1,10 @@
+API-dokumentaatio on projektin juuressa README.md
+
+Sovellus käynnistyy ajamalla koodieditorista tiedosto /src/main/java/tuplaus/TuplausApplication.java
+   - Huom, tietokanta ei tallennu levylle vaan on muistissa, joten se resetoituu aina
+     kun sovellus käynnistetään uudestaan.
+
+
+Sovelluksen testit ajetaan ajamalla koodieditorista tiedosto /src/test/java/tuplaus/TuplausApplicationTests.java
+
+
