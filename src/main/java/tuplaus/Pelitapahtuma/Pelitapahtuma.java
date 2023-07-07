@@ -24,7 +24,7 @@ public class Pelitapahtuma extends AbstractPersistable<Long>{
 
     private Date aikaleima;
 
-    private String tunniste;
+    //private String tunniste;
 
     private Integer panos;
 

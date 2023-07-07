@@ -4,11 +4,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import tuplaus.Pelitapahtuma.Pelitapahtuma;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -21,10 +26,6 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 })
 public class Pelaaja extends AbstractPersistable<Long> {
 
-    /**
-     * TODO: Lista Entitysta Pelitapahtuma
-     */
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -34,4 +35,11 @@ public class Pelaaja extends AbstractPersistable<Long> {
     private String nimi;
 
     private Integer saldo;
+
+    @OneToMany
+    private List<Pelitapahtuma> pelitapahtumat = new ArrayList<>();
+
+    // TODO: Jokin ratkaisu kotiutuksien persistointiin
+    // @OneToMany
+    // private List<Kotiutus> kotiutukset = new ArrayList<>();
 }

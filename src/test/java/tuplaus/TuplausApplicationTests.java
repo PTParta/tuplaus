@@ -33,7 +33,7 @@ class TuplausApplicationTests {
 	 * -Yksikkötestit tuplauspelin logiikalle
 	 * -Yksikkötestit use caseille pelaajan lisäys, tuplaus ja kotiuta voitot
 	 */
-	
+
 	@Test
 	public void pelaajatStatusOk() throws Exception {
 		mockMvc.perform(get("/pelaajat"))
@@ -110,7 +110,4 @@ class TuplausApplicationTests {
 
 		assertTrue(response.contains("Voitot kotiutettu"));
 	}
-
-	
-
 }

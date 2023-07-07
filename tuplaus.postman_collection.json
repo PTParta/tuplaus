@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "9ce0b58f-6183-4d73-91eb-063ec95d6651",
+		"name": "tuplaus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/tuplaus",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tunniste\":\"kalle123\",\n    \"panos\":3,\n    \"valinta\":\"suuri\",\n    \"onEnsimmainenKierros\":true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/tuplaus",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tuplaus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/tuplaus",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tunniste\":\"mikko456\",\n    \"panos\":3,\n    \"valinta\":\"suuri\",\n    \"onEnsimmainenKierros\":true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/tuplaus",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tuplaus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/pelaaja",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tunniste\": \"kalle123\",\n    \"nimi\": \"Kalle Päätalo\",\n    \"saldo\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/pelaaja",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pelaaja"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/pelaaja",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tunniste\": \"mikko456\",\n    \"nimi\": \"Mikko Mäki\",\n    \"saldo\": 2000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/pelaaja",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pelaaja"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/pelaajat",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/pelaajat",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pelaajat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/kotiutavoitot",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tunniste\":\"kalle123\",\n    \"voitonSuuruus\":8\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/kotiutavoitot",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"kotiutavoitot"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

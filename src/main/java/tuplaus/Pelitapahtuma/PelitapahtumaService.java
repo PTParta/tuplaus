@@ -29,7 +29,7 @@ public class PelitapahtumaService {
     public PelitapahtumaVastausDto luoPelitapahtuma(PelitapahtumaPyyntoDto pelitapahtumaDto)
             throws SaldoEiRiitaException, PelaajaaEiLoydyException {
 
-        onkoPelaajaOlemassa(pelitapahtumaDto.getTunniste());
+        Pelaaja pelaaja = onkoPelaajaOlemassa(pelitapahtumaDto.getTunniste());
         riittaakoSaldo(pelitapahtumaDto.getTunniste(), pelitapahtumaDto.getPanos());
         
         Laskenta laskenta = new Laskenta();
@@ -40,13 +40,15 @@ public class PelitapahtumaService {
 
         Pelitapahtuma pelitapahtuma = new Pelitapahtuma();
         pelitapahtuma.setAikaleima(new Date());
-        pelitapahtuma.setTunniste(pelitapahtumaDto.getTunniste());
         pelitapahtuma.setPanos(pelitapahtumaDto.getPanos());
         pelitapahtuma.setValinta(pelitapahtumaDto.getValinta());
         pelitapahtuma.setArvottuKortti(arvotunKortinSuuruus);
         pelitapahtuma.setMahdollisenVoitonSuuruus(mahdollisenVoitonSuuruus);
 
         pelitapahtumaRepository.save(pelitapahtuma);
+        
+        pelaaja.getPelitapahtumat().add(pelitapahtuma);
+        pelaajaRepository.save(pelaaja);
 
         PelitapahtumaVastausDto pelitapahtumaVastausDto = new PelitapahtumaVastausDto();
         pelitapahtumaVastausDto.setArvottuKortti(arvotunKortinSuuruus);
@@ -72,12 +74,13 @@ public class PelitapahtumaService {
         return "Voitot kotiutettu";
     }
 
-    private void onkoPelaajaOlemassa(String tunniste) throws PelaajaaEiLoydyException{
+    private Pelaaja onkoPelaajaOlemassa(String tunniste) throws PelaajaaEiLoydyException{
         
         Pelaaja pelaaja = pelaajaRepository.findByTunniste(tunniste);
         if (Objects.isNull(pelaaja)) {
             throw new PelaajaaEiLoydyException("Pelaajaa ei löydy tunnisteella " + tunniste);
         }
+        return pelaaja;
     }
 
     private void riittaakoSaldo(String tunniste, Integer panos) throws SaldoEiRiitaException{
