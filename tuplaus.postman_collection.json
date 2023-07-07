@@ -6,60 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "localhost:8080/tuplaus",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"tunniste\":\"kalle123\",\n    \"panos\":3,\n    \"valinta\":\"suuri\",\n    \"onEnsimmainenKierros\":true\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8080/tuplaus",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"tuplaus"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "localhost:8080/tuplaus",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"tunniste\":\"mikko456\",\n    \"panos\":3,\n    \"valinta\":\"suuri\",\n    \"onEnsimmainenKierros\":true\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8080/tuplaus",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"tuplaus"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "localhost:8080/pelaaja",
 			"request": {
 				"method": "POST",
@@ -108,6 +54,60 @@
 					"port": "8080",
 					"path": [
 						"pelaaja"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/tuplaus",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tunniste\":\"kalle123\",\n    \"panos\":3,\n    \"valinta\":\"suuri\",\n    \"onEnsimmainenKierros\":true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/tuplaus",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tuplaus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/tuplaus",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tunniste\":\"mikko456\",\n    \"panos\":3,\n    \"valinta\":\"suuri\",\n    \"onEnsimmainenKierros\":true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/tuplaus",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tuplaus"
 					]
 				}
 			},

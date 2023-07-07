@@ -7,15 +7,17 @@ import org.springframework.stereotype.Service;
 
 import tuplaus.Dtos.Requests.LuoPelaajaPyyntoDto;
 
-// TODO: PelaajaServiceInterface ja sille PelaajaServiceImpl, katso alla public interface StudentService
-//https://medium.com/@wahyudi.hh/h2-database-as-embedded-postgres-for-spring-boot-integration-test-295683c7b974
+/**
+ * TODO: PelaajaServiceInterface ja sille PelaajaServiceImpl,
+ * katso alla public interface StudentService
+ * https://medium.com/@wahyudi.hh/h2-database-as-embedded-postgres-for-spring-boot-integration-test-295683c7b974
+ */
 @Service
 public class PelaajaService {
 
     @Autowired
     PelaajaRepository pelaajaRepository;
 
-    // TODO: mapper
     public String luoPelaaja(LuoPelaajaPyyntoDto pelaajaDto) {
 
         Pelaaja pelaaja = new Pelaaja();

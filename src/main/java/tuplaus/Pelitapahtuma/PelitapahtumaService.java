@@ -15,6 +15,11 @@ import tuplaus.Laskenta.Laskenta;
 import tuplaus.Pelaaja.Pelaaja;
 import tuplaus.Pelaaja.PelaajaRepository;
 
+/**
+ * TODO: PelitapahtumaServiceInterface ja sille PelitapahtumaServiceImpl,
+ * katso alla public interface StudentService
+ * https://medium.com/@wahyudi.hh/h2-database-as-embedded-postgres-for-spring-boot-integration-test-295683c7b974
+ */
 @Service
 public class PelitapahtumaService {
 
@@ -31,7 +36,7 @@ public class PelitapahtumaService {
 
         Pelaaja pelaaja = onkoPelaajaOlemassa(pelitapahtumaDto.getTunniste());
         riittaakoSaldo(pelitapahtumaDto.getTunniste(), pelitapahtumaDto.getPanos());
-        
+
         Laskenta laskenta = new Laskenta();
         Integer arvotunKortinSuuruus = laskenta.arvoKortinSuuruus();
         Boolean voitto = laskenta.isVoitto(pelitapahtumaDto.getValinta(), arvotunKortinSuuruus);
@@ -46,7 +51,7 @@ public class PelitapahtumaService {
         pelitapahtuma.setMahdollisenVoitonSuuruus(mahdollisenVoitonSuuruus);
 
         pelitapahtumaRepository.save(pelitapahtuma);
-        
+
         pelaaja.getPelitapahtumat().add(pelitapahtuma);
         pelaajaRepository.save(pelaaja);
 
@@ -74,8 +79,8 @@ public class PelitapahtumaService {
         return "Voitot kotiutettu";
     }
 
-    private Pelaaja onkoPelaajaOlemassa(String tunniste) throws PelaajaaEiLoydyException{
-        
+    private Pelaaja onkoPelaajaOlemassa(String tunniste) throws PelaajaaEiLoydyException {
+
         Pelaaja pelaaja = pelaajaRepository.findByTunniste(tunniste);
         if (Objects.isNull(pelaaja)) {
             throw new PelaajaaEiLoydyException("Pelaajaa ei löydy tunnisteella " + tunniste);
@@ -83,8 +88,8 @@ public class PelitapahtumaService {
         return pelaaja;
     }
 
-    private void riittaakoSaldo(String tunniste, Integer panos) throws SaldoEiRiitaException{
-        
+    private void riittaakoSaldo(String tunniste, Integer panos) throws SaldoEiRiitaException {
+
         Pelaaja pelaaja = pelaajaRepository.findByTunniste(tunniste);
         Integer uusiSaldo = pelaaja.getSaldo() - panos;
         if (uusiSaldo < 0) {
