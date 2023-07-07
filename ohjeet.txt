@@ -23,3 +23,5 @@ API-dokumentaatiossa.
    - JDBC URL: jdbc:h2:mem:memDb
    - User Name: sa
    - Password:
+
+7. Projektin juuressa on kuvat tietokantatauluista pelaajataulu.png ja pelitapahtumataulu.png.
