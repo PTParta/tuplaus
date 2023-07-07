@@ -2,29 +2,43 @@ package tuplaus;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+
+import jakarta.transaction.Transactional;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@SpringBootTest()
+@SpringBootTest
 @AutoConfigureMockMvc
+@Transactional
 class TuplausApplicationTests {
 
 	@Autowired
 	private MockMvc mockMvc;
 
 	/**
-	 * TODO: Testit toisistaan riippumattomiksi. Nyt tietokantamuutokset
-	 * yhdessätestissä vaikuttaa muihin testeihin.
+	 * 
+	 * Tehty vain integraatiotestejä.
+	 * 
+	 * TODO:
+	 * 
+	 * -Testit toisistaan riippumattomiksi. Nyt tietokantamuutokset yhdessä testissä
+	 * vaikuttaa muihin testeihin.
+	 * -Yksikkötestit tuplauspelin logiikalle
+	 * -Yksikkötestit use caseille pelaajan lisäys, tuplaus ja kotiuta voitot
 	 */
-
-	@BeforeEach
+	
+	@Test
+	public void pelaajatStatusOk() throws Exception {
+		mockMvc.perform(get("/pelaajat"))
+				.andExpect(status().isOk());
+	}
 
 	@Test
 	public void tuplausOk() throws Exception {
@@ -97,10 +111,6 @@ class TuplausApplicationTests {
 		assertTrue(response.contains("Voitot kotiutettu"));
 	}
 
-	@Test
-	public void pelaajatStatusOk() throws Exception {
-		mockMvc.perform(get("/pelaajat"))
-				.andExpect(status().isOk());
-	}
+	
 
 }

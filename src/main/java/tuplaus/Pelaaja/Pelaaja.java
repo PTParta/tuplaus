@@ -21,6 +21,10 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 })
 public class Pelaaja extends AbstractPersistable<Long> {
 
+    /**
+     * TODO: Lista Entitysta Pelitapahtuma
+     */
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
