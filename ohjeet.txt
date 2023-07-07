@@ -1,19 +1,25 @@
-API-dokumentaatio on projektin juuressa README.md.
+1. Sovellus käynnistyy ajamalla koodieditorista tiedosto /src/main/java/tuplaus/TuplausApplication.java
+    - Huom, tietokanta ei tallennu levylle vaan on muistissa, joten se resetoituu aina
+      kun sovellus käynnistetään uudestaan.
 
-Katso projektin juuressa oleva tiedosto tuplaus.postman_collection.json.
+2. Sovelluksen testit ajetaan ajamalla koodieditorista tiedosto /src/test/java/tuplaus/TuplausApplicationTests.java
+
+3. API-dokumentaatio on projektin juuressa README.md.
+
+4. Katso projektin juuressa oleva tiedosto tuplaus.postman_collection.json.
 Voit importata sen Postmaniin testausta varten. Siinä on samat pyynnöt kuin
 API-dokumentaatiossa.
 
-Sovellus käynnistyy ajamalla koodieditorista tiedosto /src/main/java/tuplaus/TuplausApplication.java
-   - Huom, tietokanta ei tallennu levylle vaan on muistissa, joten se resetoituu aina
-     kun sovellus käynnistetään uudestaan.
-
-Sovelluksen testit ajetaan ajamalla koodieditorista tiedosto /src/test/java/tuplaus/TuplausApplicationTests.java
-
-Jatkokehitettäväksi:
+5. Jatkokehitettäväksi:
    - Mapperit DTO- ja Domain-olioiden välille
    - Service:iden rajapinnoittaminen
    - Yksikkötestien teko
    - Testien riippumattomuus toisistaan. Nyt tietokantamuutokset yhdessä testissä vaikuttaa muihin testeihin.
    - Kotiutusten persistointi ja miten se linkittyy muihin tietokantatauluihin
    - Tietokannan tallentaminen levylle. Yritetty mutta tuli poikkeusta minkä korjaamiseen ei heti löytynyt vastausta.
+
+6. Tietokannan tarkastelu onnistuu osoitteessa http://localhost:8080/h2-console
+   - Driver Class: org.h2.Driver
+   - JDBC URL: jdbc:h2:mem:memDb
+   - User Name: sa
+   - Password:

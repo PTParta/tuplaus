@@ -47,11 +47,9 @@ public class PelitapahtumaService {
         pelitapahtuma.setValinta(pelitapahtumaDto.getValinta());
         pelitapahtuma.setArvottuKortti(arvotunKortinSuuruus);
         pelitapahtuma.setMahdollisenVoitonSuuruus(mahdollisenVoitonSuuruus);
+        pelitapahtuma.setPelaaja(pelaaja);
 
         pelitapahtumaRepository.save(pelitapahtuma);
-
-        pelaaja.getPelitapahtumat().add(pelitapahtuma);
-        pelaajaRepository.save(pelaaja);
 
         PelitapahtumaVastausDto pelitapahtumaVastausDto = new PelitapahtumaVastausDto();
         pelitapahtumaVastausDto.setArvottuKortti(arvotunKortinSuuruus);

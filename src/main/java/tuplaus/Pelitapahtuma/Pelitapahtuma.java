@@ -8,18 +8,20 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import tuplaus.Pelaaja.Pelaaja;
 
 @Entity
 @Data
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Pelitapahtuma extends AbstractPersistable<Long>{
-    
+public class Pelitapahtuma extends AbstractPersistable<Long> {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -33,4 +35,7 @@ public class Pelitapahtuma extends AbstractPersistable<Long>{
     private Integer arvottuKortti;
 
     private Integer mahdollisenVoitonSuuruus;
+
+    @ManyToOne
+    private Pelaaja pelaaja;
 }

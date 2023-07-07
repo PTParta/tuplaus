@@ -113,7 +113,7 @@ POST localhost:8080/kotiutavoitot
 
 ## Pelaajien listaus GET localhost:8080/pelaajat
 
-Palauttaa listan kaikista pelaajista ja heidän tiedoistaan. Alla esimerkki pyynnön toiminnasta.
+Palauttaa listan kaikista pelaajista. Alla esimerkki pyynnön toiminnasta.
 
 ### Pyyntö
 
@@ -128,37 +128,13 @@ GET localhost:8080/pelaajat
         "id": 1,
         "tunniste": "kalle123",
         "nimi": "Kalle Päätalo",
-        "saldo": 130,
-        "pelitapahtumat": [
-            {
-                "id": 1,
-                "aikaleima": "2023-07-07T08:13:24.134+00:00",
-                "panos": 20,
-                "valinta": "suuri",
-                "arvottuKortti": 8,
-                "mahdollisenVoitonSuuruus": 40,
-                "new": false
-            }
-        ],
-        "new": false
+        "saldo": 0
     },
     {
         "id": 2,
         "tunniste": "mikko456",
         "nimi": "Mikko Mäki",
-        "saldo": 1997,
-        "pelitapahtumat": [
-            {
-                "id": 2,
-                "aikaleima": "2023-07-07T08:14:35.839+00:00",
-                "panos": 3,
-                "valinta": "suuri",
-                "arvottuKortti": 3,
-                "mahdollisenVoitonSuuruus": 6,
-                "new": false
-            }
-        ],
-        "new": false
+        "saldo": 1964
     }
 ]
 ```

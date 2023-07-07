@@ -37,11 +37,4 @@ public class Pelaaja extends AbstractPersistable<Long> {
     private String nimi;
 
     private Integer saldo;
-
-    @OneToMany
-    private List<Pelitapahtuma> pelitapahtumat = new ArrayList<>();
-
-    // TODO: Jokin ratkaisu kotiutuksien persistointiin
-    // @OneToMany
-    // private List<Kotiutus> kotiutukset = new ArrayList<>();
 }

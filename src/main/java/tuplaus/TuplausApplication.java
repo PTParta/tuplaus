@@ -9,5 +9,4 @@ public class TuplausApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TuplausApplication.class, args);
 	}
-
 }
