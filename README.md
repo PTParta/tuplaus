@@ -26,7 +26,9 @@ POST localhost:8080/pelaaja
 
 ## Tuplaus POST localhost:8080/tuplaus
 
-Jos pelaajan saldo ei riitä tulee vastauksena 400 Bad Request, syy "Saldo ei riitä"
+Jos pelaajan saldo ei riitä tulee vastauksena 400 Bad Request, syy "Saldo ei riitä".
+
+Jos annetulla tunnisteella ei löydy pelaajaa tulee vastauksena 400 Bad Request, syy "Tunnisteella ei löydy pelaajaa"
 
 Alla esimerkit pyynnön toiminnasta.
 
