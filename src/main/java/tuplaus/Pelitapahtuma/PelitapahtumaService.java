@@ -17,8 +17,6 @@ import tuplaus.Pelaaja.PelaajaRepository;
 
 /**
  * TODO: PelitapahtumaServiceInterface ja sille PelitapahtumaServiceImpl,
- * katso alla public interface StudentService
- * https://medium.com/@wahyudi.hh/h2-database-as-embedded-postgres-for-spring-boot-integration-test-295683c7b974
  */
 @Service
 public class PelitapahtumaService {

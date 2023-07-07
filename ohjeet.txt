@@ -8,5 +8,12 @@ Sovellus käynnistyy ajamalla koodieditorista tiedosto /src/main/java/tuplaus/Tu
    - Huom, tietokanta ei tallennu levylle vaan on muistissa, joten se resetoituu aina
      kun sovellus käynnistetään uudestaan.
 
-
 Sovelluksen testit ajetaan ajamalla koodieditorista tiedosto /src/test/java/tuplaus/TuplausApplicationTests.java
+
+Jatkokehitettäväksi:
+   - Mapperit DTO- ja Domain-olioiden välille
+   - Service:iden rajapinnoittaminen
+   - Yksikkötestien teko
+   - Testien riippumattomuus toisistaan. Nyt tietokantamuutokset yhdessä testissä vaikuttaa muihin testeihin.
+   - Kotiutusten persistointi ja miten se linkittyy muihin tietokantatauluihin
+   - Tietokannan tallentaminen levylle. Yritetty mutta tuli poikkeusta minkä korjaamiseen ei heti löytynyt vastausta.

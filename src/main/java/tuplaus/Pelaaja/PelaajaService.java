@@ -9,8 +9,6 @@ import tuplaus.Dtos.Requests.LuoPelaajaPyyntoDto;
 
 /**
  * TODO: PelaajaServiceInterface ja sille PelaajaServiceImpl,
- * katso alla public interface StudentService
- * https://medium.com/@wahyudi.hh/h2-database-as-embedded-postgres-for-spring-boot-integration-test-295683c7b974
  */
 @Service
 public class PelaajaService {
@@ -26,6 +24,7 @@ public class PelaajaService {
         pelaaja.setSaldo(pelaajaDto.getSaldo());
 
         pelaajaRepository.save(pelaaja);
+        
         return "Pelaaja luotu";
     }
 
