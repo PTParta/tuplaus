@@ -84,7 +84,7 @@ POST localhost:8080/tuplaus
 {
     "arvottuKortti": 3,
     "voitto": false,
-    "mahdollisenVoitonSuuruus": 6,
+    "mahdollisenVoitonSuuruus": 80,
     "pelitilinSaldo": 80
 }
 ```
